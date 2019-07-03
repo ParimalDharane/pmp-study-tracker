@@ -13,6 +13,7 @@ export const helloWorld = functions.https.onRequest((request, response) => {
 });
 
 // Inserts the new user into another table usertopics
+/*
 exports.insertUsertopics = functions.auth.user().onCreate((userRecord, context) => {
     const uid = userRecord.uid;
     const usertopicObj = {
@@ -35,7 +36,7 @@ exports.insertUsertopics = functions.auth.user().onCreate((userRecord, context) 
       });
     
 });
-
+*/
 /* Working copy */
 /*
 exports.insertUsertopics = functions.auth.user().onCreate((userRecord, context) => {
