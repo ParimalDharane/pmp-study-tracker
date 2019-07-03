@@ -1,5 +1,6 @@
 {
   "projects": {
-    "study-tracker": "pmp-strudy-tracker"
+    "study-tracker": "pmp-strudy-tracker",
+    "default": "pmp-strudy-tracker"
   }
 }
