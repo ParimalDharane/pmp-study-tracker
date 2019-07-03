@@ -1,7 +1,9 @@
 import * as functions from 'firebase-functions';
 
 const admin = require('firebase-admin');
-admin.initializeApp();
+const config = functions.config();
+
+admin.initializeApp(config.firebase);
 
 // // Start writing Firebase Functions
 // // https://firebase.google.com/docs/functions/typescript
@@ -19,7 +21,27 @@ exports.insertUsertopics = functions.auth.user().onCreate((userRecord, context) 
         topicID: '99'
     };
     admin.firestore().doc('usertopics/' + uid).set(usertopicObj);
+
+    console.log('reading topic document');
+    const ref = admin.database.ref('topic/');
+    ref.on("value", function(snapshot: any) {
+        console.log('reading topic:' + snapshot.val());
+    });
 });
+
+/* Working copy */
+/*
+exports.insertUsertopics = functions.auth.user().onCreate((userRecord, context) => {
+    const uid = userRecord.uid;
+    const usertopicObj = {
+        userID: uid,
+        status: 'todo',
+        topicID: '99'
+    };
+    admin.firestore().doc('usertopics/' + uid).set(usertopicObj);
+});
+*/
+
 
 // Inserts list of records into usertopics table for the new user
 /*
