@@ -22,11 +22,18 @@ exports.insertUsertopics = functions.auth.user().onCreate((userRecord, context) 
     };
     admin.firestore().doc('usertopics/' + uid).set(usertopicObj);
 
-    console.log('reading topic document');
-    const ref = admin.database.ref('topic/');
-    ref.on("value", function(snapshot: any) {
-        console.log('reading topic:' + snapshot.val());
-    });
+    console.log('reading topic document v4');
+    const ref = admin.database().ref('usertopics/');
+    ref.once('value').then(function(snapshot: any) {
+        snapshot.forEach(function(childSnapshot: any) {
+          let childKey = childSnapshot.key;
+          let childData = childSnapshot.val();
+
+          console.log(childData, 'reading childData: and val=' + childKey + ' status=' + childData.status);
+          // ...
+        });
+      });
+    
 });
 
 /* Working copy */
