@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" routerLink="#">Auth Demo</a>
+  <a class="navbar-brand" routerLink="#">PMP Study Tracker</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
     aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -7,16 +7,16 @@
   <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link btn" href="#">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/students" *ngIf="(user | async)?.uid">Students</a>
+        <a class="nav-link btn" routerLink="/trackerview" *ngIf="(user | async)?.uid">Tracker</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link disabled" routerLink="/students">Disabled</a>
+        <a class="nav-link btn" routerLink="/students" *ngIf="(user | async)?.uid">Students</a>
       </li>
       <li class="nav-item">
-          <a class="nav-link " routerLink="/user" *ngIf="!(user | async)?.uid">Login</a>
+          <a class="nav-link btn" routerLink="/user" *ngIf="!(user | async)?.uid">Login</a>
         </li>
       <li class="nav-item">
         <a class="nav-link btn" (click)="logout()" *ngIf="(user | async)?.uid">Logout</a>
