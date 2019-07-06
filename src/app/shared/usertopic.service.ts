@@ -6,10 +6,10 @@ import { Usertopic } from './usertopic.model';
   providedIn: 'root'
 })
 export class UsertopicService {
-  constructor(private firestore: AngularFirestore) { }
+  constructor(private db: AngularFirestore) { }
 
-  getUsertopics() {
-      return this.firestore.collection('usertopics').snapshotChanges();
+  getUsertopics(uid: string) {
+      return this.db.collection('/usertopics/'+ uid + '/topics').valueChanges();
   }
   
   formData: Usertopic;

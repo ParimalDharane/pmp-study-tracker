@@ -8,6 +8,7 @@ import { AuthGuard } from './core/auth.guard';
 import { TrackerviewComponent } from './trackerview/trackerview.component';
 import { StudentListComponent } from './students/student-list/student-list.component';
 import { StudentService } from './shared/student.service';
+import { TopicviewComponent } from './topicview/topicview.component';
 
 export const rootRouterConfig: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -15,5 +16,6 @@ export const rootRouterConfig: Routes = [
   { path: 'register', component: RegisterComponent, canActivate: [AuthGuard] },
   { path: 'user', component: UserComponent,  resolve: { data: UserResolver} },
   { path: 'students', component: StudentListComponent },
-  { path: 'trackerview', component: TrackerviewComponent }
+  { path: 'trackerview', component: TrackerviewComponent },
+  { path: 'topicview', component: TopicviewComponent }
 ];

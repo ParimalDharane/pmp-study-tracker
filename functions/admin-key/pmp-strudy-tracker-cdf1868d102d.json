@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "pmp-strudy-tracker",
+  "private_key_id": "cdf1868d102d4140b8ad00f910cdc6f0d6bbf404",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDH67YPIyu40Lk/\nMyQDVa8L83FWLDUR+CnPCEqsb/N6oNeadPEK2ykqukzgKCufS1v8iktFnCnYv5Kb\nfQv0kSCitVLeRiqC9G5KaTwo8DcUD77lDbrC2P97Tp8TAkoLCiaK6/h5C1ZJxM15\nxWB8ncq50TYKpiOXNMPA3yPM1pIApRzZFTsVzDJPIUQqfABC63/0Hn2YDv3/qOIw\nbrrpMTeyVCLunYe6bpddVNyKZWG7xcXG7dpKccT36l5n1KyJ7LyIuUMfnJXJszmP\nizIfQK61EIS58sLpJ4voSkO8S+I29QqH7dIXw8ZTla7PvJjD7isBEePhJs4+KjAh\nCEaXG/d1AgMBAAECggEAE3v8TizgF77V8xwlnCKXcRt8lgiwcmwkjP4youw1R2QS\nJ0ZS8Lsr37NxBx67I6cJU8tZqzLdXDfNjtRo3CDh1KHF7g5aGdG/RwbLG3VP9OdU\n9Ed6hn92JNskg0qDk2Bdocf+OzPY6M8itIXBUdviFGqYsQCAsv2sP2mv+EiIScIh\ngcjoByvasraBdpMysB+jI5SvIHpKXh5GrIoZTh34GapYmDy5lqVnAMfJ49v6ELRB\n7rKVm/m1xqKWG0bSpa+u2fQo/mjzkmQMMA/E+d8oZ6iOXQK5szObL6Mk7edfopol\nBUvaevqfNXzey2lq0eHD+qMl8ks0gnsOdFKPaNwO6QKBgQD6m2OcQ//u2QjuUrnk\nTTH4NZDhDhwf8K7smxmgapBHRwWwUIsPFTKy503ZC8ZjQjqYA6if0QKbr5UDTmVv\nlKORGLw2Oc8whk7KCgeLrqykCYGSSW0WUEdaKhLkwFlxGP9sbRhnlDJ8wl6D8zTB\nbUTNVwlfy1Zj8Ji7vdFrPsjTOQKBgQDMORaPGFfYyT4X763wQot1PR9VXuBOfwOL\n9dVyBTc/+OaSBEXhcwtZiXbmVKH7puQe2EgXgyabTk+THc5Zw+JadKW1Xth9BuMT\nJKSas2LSk2RNG4TvLsg7Juvyt3A9rO7ehoiDBPszazJTlM8si9qo3i6bxlRn820L\ncX39PupaHQKBgQDxF9bvufeZiBDwfoO54I4nNRlJenKSQ9F1bQ1tZ7ef6vLNGd9+\nRi19McuR+KMGUOvf3P03qzNwJa4c/SnW+8+UQpCnNlxeWYepFZcGyafrM/4Eh0E8\nS0Upt/pvOaGSjbMFU7s7wrYDklataKejQoUDay1ojE1zXj8Btu6m10MK+QKBgDeO\nzFFPeQ6T6N2QKcyz/cZ+Q1jxP6p7KVbZISEsxBQWPXu5x90GdC7+k6cjnRGeHG87\nvZkP59/WVRWbxThsbtbW5wHJdLHGvt3FWTZw2NCaom3Lr8V1/6j/9K6KMvHEaxOE\nm/ywzTn2zrEoSZg/z9Oi5iEgunOxKJg1XuYXSKANAoGAcNzTXL17sPvdetW1skcH\nG7ItLUMu6pyLoDZorwcIs+vSbZ8vlOtH5kcDOIWeP3aodULJgp9UGl5kJTnJ45LJ\nx6aJRyX10GdAzkHc5ACQ7OKuAyvPl06Twj7xSvoQM0d2sdfZejCNwPYuhB5BG8He\nSxSTwnW65O1+EccK+JAuXt8=\n-----END PRIVATE KEY-----\n",
+  "client_email": "pmp-strudy-tracker@appspot.gserviceaccount.com",
+  "client_id": "102213093996128213380",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/pmp-strudy-tracker%40appspot.gserviceaccount.com"
+}

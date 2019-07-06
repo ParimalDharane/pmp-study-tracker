@@ -1,0 +1,20 @@
+<h2>
+  Topics
+</h2>
+
+<table class="table table-hover">
+  <thead>
+    <th>Topic Code</th>
+    <th>Name</th>
+    <th>Knowledge Area</th>
+    <th>Process Group</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let utItem of topics | async">
+      <td (click)="onEdit(utItem)">{{utItem.code}}</td>
+      <td (click)="onEdit(utItem)">{{utItem.name}}</td>
+      <td (click)="onEdit(utItem)">{{utItem.area}}</td>
+      <td (click)="onEdit(utItem)">{{utItem.procgroup}}</td>
+    </tr>
+  </tbody>
+</table>

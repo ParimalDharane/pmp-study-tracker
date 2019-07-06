@@ -21,6 +21,7 @@ import { StudentService } from './shared/student.service';
 import { StudentListComponent } from './students/student-list/student-list.component';
 import { StudentComponent } from './students/student/student.component';
 import { TrackerviewComponent } from './trackerview/trackerview.component';
+import { TopicviewComponent } from './topicview/topicview.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { TrackerviewComponent } from './trackerview/trackerview.component';
     NavbarComponent,
     StudentListComponent,
     StudentComponent,
-    TrackerviewComponent
+    TrackerviewComponent,
+    TopicviewComponent
   ],
   imports: [
     BrowserModule,

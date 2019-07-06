@@ -1,24 +1,25 @@
-<p>
-  trackerview works!
-</p>
+<h2>
+  User Topics 
+</h2>
 <table class="table table-hover">
   <thead>
     <th>Topic Number</th>
     <th>Name</th>
-    <th>Start Date</th>
+    <!-- <th>Start Date</th>
     <th>Finish Date</th>
     <th>Status</th>
-    <th>Remarks</th>
+    <th>Remarks</th> -->
     <th></th>
   </thead>
   <tbody>
-    <tr *ngFor="let utItem of usertopicList">
-      <td (click)="onEdit(utItem)">{{utItem.topicID}}</td>
-      <td (click)="onEdit(utItem)">{{utItem.topicName}}</td>
-      <td (click)="onEdit(utItem)">{{utItem.startDate.toMillis() | date}}</td>
+    <tr *ngFor="let utItem of usertopics | async">
+    
+      <td (click)="onEdit(utItem)">{{utItem.code}}</td>
+      <td (click)="onEdit(utItem)">{{utItem.name}}</td>
+      <!-- <td (click)="onEdit(utItem)">{{utItem.startDate.toMillis() | date}}</td>
       <td (click)="onEdit(utItem)">{{utItem.finishDate.toMillis() | date}}</td>
       <td (click)="onEdit(utItem)">{{utItem.status}}</td>
-      <td (click)="onEdit(utItem)">{{utItem.remarks}}</td>
+      <td (click)="onEdit(utItem)">{{utItem.email}}</td> -->
       <td><a class="btn text-danger" (click)="onDelete(utItem.topicID)"><i class="fa fa-trash"></i></a></td>
     </tr>
   </tbody>
