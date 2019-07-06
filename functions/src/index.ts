@@ -1,17 +1,64 @@
-import * as functions from 'firebase-functions';
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 
+const functions = require("firebase-functions");
 const admin = require('firebase-admin');
 const config = functions.config();
 
 admin.initializeApp(config.firebase);
 
+const db = admin.firestore();
+
+
 // // Start writing Firebase Functions
 // // https://firebase.google.com/docs/functions/typescript
 //
-export const helloWorld = functions.https.onRequest((request, response) => {
+exports.helloWorld = functions.https.onRequest((request:any, response:any) => {
     response.send("Hello from Firebase!");
 });
 
+exports.setupUsertopics = functions.auth.user().onCreate(async (userRecord:any, context:any) => {
+    const uid = userRecord.uid;
+    // const usertopicObj = {
+    //     userid: uid,
+    //     status: 'todo',
+    //     code: '10.1',
+    //     name: 'topic 10.1'
+    // };
+
+    console.log('inside onCreate for user=' + uid);  
+
+    const querySnapshot = await db.collection("topics").get();
+      querySnapshot.forEach(topic => {
+        const topicData = topic.data();
+
+        const usertopicObj = {
+            userid: uid,
+            status: 'todo',
+            code: topicData.code,
+            name: topicData.name
+        };
+
+        // usertopicObj.code = topicData.code;
+        // usertopicObj.name = topicData.name;
+      
+        console.log('inside topic lopp code=' + topicData.code);    
+
+        db
+        .collection('usertopics')
+        .doc(uid)
+        .collection('topics')
+        .doc()
+        .set(usertopicObj)
+        .then(function() {
+            console.log('Usrtopic added successfully for uid=' + uid + ', topic code=' + topicData.code);    
+        })
+        .catch(function(error:any) {
+            console.log('Error while adding usrtopic for uid=' + uid + ', error=' + error);    
+        });
+    });
+    return true;
+});
 // Inserts the new user into another table usertopics
 /*
 exports.insertUsertopics = functions.auth.user().onCreate((userRecord, context) => {
