@@ -77,4 +77,7 @@ export class TrackerviewComponent implements OnInit {
     }
   }
 
+  setClickedRow = function(index) {
+    this.selectedRow = index;
+  }
 }
