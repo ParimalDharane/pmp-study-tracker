@@ -63,56 +63,10 @@ export class TrackerviewComponent implements OnInit {
     }
   }
 
-  retrieveData() {
-    /* 
-    //Get all topics
-     this.topicService.getTopics().subscribe(itemList => {
-      this.topicList = itemList.map(item => {
-        return {
-          id: item.payload.doc.id,
-          ...item.payload.doc.data()
-        } as Topic;
-      })
-
-      console.log(this.topicList, 'topicList list');
-
-      console.log('Current user:' + this.user.uid);
-      let uid = '0FFd0d9AqFVBdR9aPVRG71D0Jw62'; //TODO remove this
-
-     
-
-      //Get all usertopics for current user
-      this.usertopicList = this.userTopicService.getUsertopics(uid)
-      .pipe(map(itemList => itemList.map(this.usertopicObj)));
-*/
-        /*
-        this.userTopicService.getUsertopics(uid).subscribe(itemList => {
-          this.usertopicList = itemList.map(item => {
-            return {
-              topicID: item.payload.doc.id,
-              ...item.payload.doc.data()
-            } as Usertopic;
-          })
-          */
-  
-          /*
-      console.log(this.usertopicList, 'usertopicList list');
-
-        //Merge the two lists
-      var merged = _.map(this.topicList, function (item) {
-          return _.assign(item, _.find(this.usertopicList, ['topicID', item.id]));
-      });
-
-      console.log(merged, 'Merged list');
-
-    });
-    */
-  }
-
-  onEdit(id: string, usertopicObj: Usertopic) {
+  onEdit(usertopicObj: Usertopic) {
     usertopicObj.status = 'In Progress';
     console.log(usertopicObj, ' inside onEdit');
-    console.log(' inside onEdit id=' + id);
+    console.log(' inside onEdit id=' + usertopicObj.id);
     this.userTopicService.updateUsertopic(usertopicObj);
     // this.userTopicService.formData = Object.assign({}, usertopicObj);
   }

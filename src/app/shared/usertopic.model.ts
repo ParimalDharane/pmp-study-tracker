@@ -1,5 +1,5 @@
 export class Usertopic {
-    $key: string;
+    id: string;
     code: string;
     name: string;
     area: string;

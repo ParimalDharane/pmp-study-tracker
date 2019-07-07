@@ -24,7 +24,7 @@
       <td>{{utItem.startDate? (utItem.startDate.toMillis() | date) : ''}}</td>
       <td>{{utItem.finishDate? (utItem.finishDate.toMillis() | date) : ''}}</td>
       <td>{{utItem.remarks}}</td>
-      <td><a class="btn text-danger" (click)="onEdit(utItem.id, utItem)"><i class="fa fa-pencil">Edit</i></a></td>
+      <td><a class="btn text-danger" (click)="onEdit(utItem)"><i class="fa fa-pencil">Edit</i></a></td>
     </tr>
   </tbody>
 </table>
