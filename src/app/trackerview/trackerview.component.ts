@@ -19,6 +19,8 @@ import { LoginComponent } from '../login/login.component';
 export class TrackerviewComponent implements OnInit {
 
   defDateFormat: 'yyyy/MM/dd h:mm:ss a';
+  selectedRow: any;
+  selectedObj: any;
   user: any;
   topicList: Topic[];
   // usertopicList: Usertopic[];
@@ -77,7 +79,20 @@ export class TrackerviewComponent implements OnInit {
     }
   }
 
-  setClickedRow = function(index) {
+  changeStatus(newStatus: string) {
+    if(this.selectedRow !== undefined) {
+      this.selectedObj.status = newStatus;
+      this.userTopicService.updateUsertopic(this.selectedObj);
+    }
+    // usertopicObj.status = 'In Progress';
+    // console.log(usertopicObj, ' inside onEdit');
+    // console.log(' inside onEdit id=' + usertopicObj.id);
+    
+    // this.userTopicService.formData = Object.assign({}, usertopicObj);
+  }
+
+  setClickedRow = function(index: any, obj: Usertopic) {
     this.selectedRow = index;
+    this.selectedObj = obj;
   }
 }
