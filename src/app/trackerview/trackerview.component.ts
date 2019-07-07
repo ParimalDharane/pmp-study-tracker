@@ -40,11 +40,14 @@ export class TrackerviewComponent implements OnInit {
   };
 
   ngOnInit() {
-    let uid = '0FFd0d9AqFVBdR9aPVRG71D0Jw62';
-    let email = 'pqr';
-    this.usertopics = this.userTopicService.getUsertopics(uid);
-    console.log(this.usertopics, ' received usertopics ');
-    let a = 12;
+    // let uid = '0FFd0d9AqFVBdR9aPVRG71D0Jw62';
+    const user =  JSON.parse(localStorage.getItem('currUser'));
+    console.log(user, ' get from localstorage ');
+    if(user !== null) {
+      // let uid = '0FFd0d9AqFVBdR9aPVRG71D0Jw62';
+      this.usertopics = this.userTopicService.getUsertopics(user.uid);
+      console.log(this.usertopics, ' received usertopics ');
+    }
   }
 
   retrieveData() {

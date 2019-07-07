@@ -15,19 +15,23 @@ export class UserResolver implements Resolve<FirebaseUserModel> {
     return new Promise((resolve, reject) => {
       this.userService.getCurrentUser()
       .then(res => {
+        console.log(res, ' inside userresolver');
         if(res.providerData[0].providerId == 'password'){
           user.image = 'https://via.placeholder.com/400x300';
           user.name = res.displayName;
           user.provider = res.providerData[0].providerId;
-          return resolve(user);
+          user.uid = res.uid;
         }
         else{
           user.image = res.photoURL;
           user.name = res.displayName;
           user.provider = res.providerData[0].providerId;
-          return resolve(user);
+          user.uid = res.uid;
         }
+        localStorage.setItem('currUser', JSON.stringify(user));
+        return resolve(user);
       }, err => {
+        localStorage.setItem('currUser', null);
         this.router.navigate(['/login']);
         return reject(err);
       })

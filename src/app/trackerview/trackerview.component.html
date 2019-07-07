@@ -21,8 +21,8 @@
       <td (click)="onEdit(utItem)">{{utItem.area}}</td>
       <td (click)="onEdit(utItem)">{{utItem.procgroup}}</td>
       <td (click)="onEdit(utItem)">{{utItem.status}}</td>
-      <td (click)="onEdit(utItem)">{{utItem.startDate.toMillis() | date}}</td>
-      <td (click)="onEdit(utItem)">{{utItem.finishDate.toMillis() | date}}</td>
+      <td (click)="onEdit(utItem)">{{utItem.startDate? (utItem.startDate.toMillis() | date) : ''}}</td>
+      <td (click)="onEdit(utItem)">{{utItem.finishDate? (utItem.finishDate.toMillis() | date) : ''}}</td>
       <td (click)="onEdit(utItem)">{{utItem.remarks}}</td>
       <td><a class="btn text-danger" (click)="onDelete(utItem.topicID)"><i class="fa fa-trash"></i></a></td>
     </tr>
