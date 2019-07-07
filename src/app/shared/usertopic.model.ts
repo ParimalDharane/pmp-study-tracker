@@ -1,9 +1,12 @@
 export class Usertopic {
-    userName: string;
-    topicID: string;
-    topicName: string;
+    $key: string;
+    code: string;
+    name: string;
+    area: string;
+    status: string;
+    procgroup: string;
     startDate: Date;
     finishDate: Date;
-    status: string;
     remarks: string;
+    userid: string;
 }

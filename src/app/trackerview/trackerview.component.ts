@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -23,6 +23,7 @@ export class TrackerviewComponent implements OnInit {
   topicList: Topic[];
   // usertopicList: Usertopic[];
   public usertopics: Observable<any[]>;
+  private usertopicsCollection: AngularFirestoreCollection<Usertopic>;
 
   
   constructor(
@@ -45,8 +46,20 @@ export class TrackerviewComponent implements OnInit {
     console.log(user, ' get from localstorage ');
     if(user !== null) {
       // let uid = '0FFd0d9AqFVBdR9aPVRG71D0Jw62';
-      this.usertopics = this.userTopicService.getUsertopics(user.uid);
+      this.usertopicsCollection = this.userTopicService.getUsertopics(user.uid);
+      // this.usertopics = this.usertopicsCollection.valueChanges();
+
+
+      this.usertopics = this.usertopicsCollection.snapshotChanges().pipe(
+        map(actions => actions.map(a => {
+          const data = a.payload.doc.data() as Usertopic;
+          const id = a.payload.doc.id;
+          return { id, ...data };
+        }))
+      );
+
       console.log(this.usertopics, ' received usertopics ');
+      console.log(this.usertopicsCollection, ' received usertopicsCollection ');
     }
   }
 
@@ -96,8 +109,12 @@ export class TrackerviewComponent implements OnInit {
     */
   }
 
-  onEdit(usertopicObj: Usertopic) {
-    this.userTopicService.formData = Object.assign({}, usertopicObj);
+  onEdit(id: string, usertopicObj: Usertopic) {
+    usertopicObj.status = 'In Progress';
+    console.log(usertopicObj, ' inside onEdit');
+    console.log(' inside onEdit id=' + id);
+    this.userTopicService.updateUsertopic(usertopicObj);
+    // this.userTopicService.formData = Object.assign({}, usertopicObj);
   }
 
   onDelete(topicID: string) {

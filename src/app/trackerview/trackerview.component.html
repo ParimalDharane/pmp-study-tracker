@@ -16,15 +16,15 @@
   <tbody>
     <tr *ngFor="let utItem of usertopics | async">
     
-      <td (click)="onEdit(utItem)">{{utItem.code}}</td>
-      <td (click)="onEdit(utItem)">{{utItem.name}}</td>
-      <td (click)="onEdit(utItem)">{{utItem.area}}</td>
-      <td (click)="onEdit(utItem)">{{utItem.procgroup}}</td>
-      <td (click)="onEdit(utItem)">{{utItem.status}}</td>
-      <td (click)="onEdit(utItem)">{{utItem.startDate? (utItem.startDate.toMillis() | date) : ''}}</td>
-      <td (click)="onEdit(utItem)">{{utItem.finishDate? (utItem.finishDate.toMillis() | date) : ''}}</td>
-      <td (click)="onEdit(utItem)">{{utItem.remarks}}</td>
-      <td><a class="btn text-danger" (click)="onDelete(utItem.topicID)"><i class="fa fa-trash"></i></a></td>
+      <td>{{utItem.code}}</td>
+      <td>{{utItem.name}}</td>
+      <td>{{utItem.area}}</td>
+      <td>{{utItem.procgroup}}</td>
+      <td>{{utItem.status}}</td>
+      <td>{{utItem.startDate? (utItem.startDate.toMillis() | date) : ''}}</td>
+      <td>{{utItem.finishDate? (utItem.finishDate.toMillis() | date) : ''}}</td>
+      <td>{{utItem.remarks}}</td>
+      <td><a class="btn text-danger" (click)="onEdit(utItem.id, utItem)"><i class="fa fa-pencil">Edit</i></a></td>
     </tr>
   </tbody>
 </table>
