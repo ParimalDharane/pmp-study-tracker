@@ -18,43 +18,38 @@ exports.helloWorld = functions.https.onRequest((request:any, response:any) => {
 });
 
 exports.setupUsertopics = functions.auth.user().onCreate(async (userRecord:any, context:any) => {
-    const uid = userRecord.uid;
-    // const usertopicObj = {
-    //     userid: uid,
-    //     status: 'todo',
-    //     code: '10.1',
-    //     name: 'topic 10.1'
-    // };
-
-    console.log('inside onCreate for user=' + uid);  
+    console.log('inside onCreate for user=' + userRecord.uid);  
 
     const querySnapshot = await db.collection("topics").get();
       querySnapshot.forEach(topic => {
         const topicData = topic.data();
 
         const usertopicObj = {
-            userid: uid,
-            status: 'todo',
+            userid: userRecord.uid,
+            email: userRecord.email,
+            displayName: userRecord.displayName,
             code: topicData.code,
-            name: topicData.name
+            name: topicData.name,
+            area: topicData.area,
+            procgroup: topicData.procgroup,
+            status: 'todo',
+            startDate: '',
+            finishDate: '',
+            remarks: ''
         };
 
-        // usertopicObj.code = topicData.code;
-        // usertopicObj.name = topicData.name;
-      
-        console.log('inside topic lopp code=' + topicData.code);    
-
+        console.log('inside topic lopp code=' + topicData.code);
         db
         .collection('usertopics')
-        .doc(uid)
+        .doc(userRecord.uid)
         .collection('topics')
         .doc()
         .set(usertopicObj)
         .then(function() {
-            console.log('Usrtopic added successfully for uid=' + uid + ', topic code=' + topicData.code);    
+            console.log('Usrtopic added successfully for uid=' + userRecord.uid + ', topic code=' + topicData.code);    
         })
         .catch(function(error:any) {
-            console.log('Error while adding usrtopic for uid=' + uid + ', error=' + error);    
+            console.log('Error while adding usrtopic for uid=' + userRecord.uid + ', error=' + error);    
         });
     });
     return true;
