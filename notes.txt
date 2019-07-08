@@ -1,0 +1,84 @@
+Project Tracker
+================
+1. UI - Trackerview - disable action bar on top if no row is selected
+2. Backend - Trackerview - add workflow checking logic - todo->In progress->done 
+3. UI - Cleanup - remove students menu and component
+4. UI - Enhance look and feel, layout etc
+5. Backend - import all 49 processes into topics database
+6. Auth - implement role based screens/actions - topics maintenance is allowed only for admin user 
+7. UI - CRUD for topics
+8. UI - Trackerview - merge topics columns in one column, reducing width of the table
+9. UI - Trackerview - add progress bar showing progress of the topics study
+10. UI - Trackerview - move toaster location to right botton of the screens
+11. UI - User Registration Form - add additional fields
+12. UI - Trackerview - Allow user to add remarks
+
+
+
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBKBFrFqzWIQ-Ixh4JDK35-8wQ2iRsvNoM",
+  authDomain: "fir-auth-85aee.firebaseapp.com",
+  databaseURL: "https://fir-auth-85aee.firebaseio.com",
+  projectId: "fir-auth-85aee",
+  storageBucket: "fir-auth-85aee.appspot.com",
+  messagingSenderId: "302112509951",
+  appId: "1:302112509951:web:6907f92149fd203c"
+};
+
+--X--
+firebase.json - original contents
+
+{
+    "hosting": {
+      "public": "dist/my-app",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ]
+    },
+    "functions" {
+      "predeploy": [
+        "npm --prefix \"$RESOURCE_DIR\" run lint"
+      ]
+    }
+  }
+  --X--
+  service cloud.firestore {
+  match /databases/{database}/documents {
+    match /{document=**} {
+      allow read, write: if false;
+    }
+    match /students/{story} {
+      function isSignedIn() {
+        return request.auth.uid != null;
+      }
+
+      allow read, write: if isSignedIn()
+    }
+  }
+}
+--X--
+https://stackoverflow.com/questions/46590155/firestore-permission-denied-missing-or-insufficient-permissions?rq=1
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /stories/{story} {
+      function isSignedIn() {
+        return request.auth.uid != null;
+      }
+
+      allow read, write: if isSignedIn() && request.auth.uid == resource.data.uid
+    }
+  }
+}
+
+Firestore.instance
+          .collection('stories')
+          .where('uid', isEqualTo: user.uid)
+          .snapshots()
+https://firebase.google.com/docs/firestore/security/rules-query
+--X--      npm install @types/nodemailer
+npm install nodemailer
+npm install firebase-functions
