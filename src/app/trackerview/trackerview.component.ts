@@ -10,6 +10,7 @@ import { Usertopic } from 'src/app/shared/usertopic.model';
 import { Topic } from 'src/app/shared/topic.model';
 import * as _ from 'lodash';
 import { LoginComponent } from '../login/login.component';
+import * as firebase from 'firebase/app';
 
 @Component({
   selector: 'app-trackerview',
@@ -27,6 +28,10 @@ export class TrackerviewComponent implements OnInit {
   public usertopics: Observable<any[]>;
   private usertopicsCollection: AngularFirestoreCollection<Usertopic>;
 
+  //constants
+  public Status_ToDo = 'To Do';
+  public Status_InProgress = 'In Progress';
+  public Status_Done = 'Done';
   
   constructor(
     private userTopicService: UsertopicService,
@@ -65,6 +70,7 @@ export class TrackerviewComponent implements OnInit {
     }
   }
 
+  /*
   onEdit(usertopicObj: Usertopic) {
     usertopicObj.status = 'In Progress';
     console.log(usertopicObj, ' inside onEdit');
@@ -72,27 +78,42 @@ export class TrackerviewComponent implements OnInit {
     this.userTopicService.updateUsertopic(usertopicObj);
     // this.userTopicService.formData = Object.assign({}, usertopicObj);
   }
+  */
 
+  /*
   onDelete(topicID: string) {
     if (confirm("Are you sure to delete this record?")) {
       this.firestore.doc('usertopic/' + topicID).delete();
     }
   }
+  */
 
   changeStatus(newStatus: string) {
     if(this.selectedRow !== undefined) {
       this.selectedObj.status = newStatus;
+      if(newStatus === this.Status_ToDo) {
+        this.selectedObj.startDate = '';
+        this.selectedObj.finishDate = '';
+      } else if(newStatus === this.Status_InProgress) {
+        this.selectedObj.startDate = this.todaysDate();
+        this.selectedObj.finishDate = '';
+      } else if(newStatus === this.Status_Done) {
+        // this.selectedObj.startDate = this.todaysDate();
+        this.selectedObj.finishDate = this.todaysDate();;
+      }
       this.userTopicService.updateUsertopic(this.selectedObj);
     }
-    // usertopicObj.status = 'In Progress';
-    // console.log(usertopicObj, ' inside onEdit');
-    // console.log(' inside onEdit id=' + usertopicObj.id);
-    
-    // this.userTopicService.formData = Object.assign({}, usertopicObj);
   }
-
+  
   setClickedRow = function(index: any, obj: Usertopic) {
     this.selectedRow = index;
     this.selectedObj = obj;
   }
+
+  todaysDate = function() {
+    let today = new Date();
+    let firestoreDate = firebase.firestore.Timestamp.fromDate(today);
+    return firestoreDate;
+  }
+
 }

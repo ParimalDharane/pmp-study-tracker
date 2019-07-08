@@ -2,9 +2,9 @@
   User Topics 
 </h2>
 <div class="example-button-row">
-  <button mat-stroked-button (click)="changeStatus('TODO')">TODO</button>
-  <button mat-stroked-button color="primary" (click)="changeStatus('In Progress')">In Progress</button>
-  <button mat-stroked-button color="warn" (click)="changeStatus('Done')">Done</button>
+  <button mat-stroked-button (click)="changeStatus(Status_ToDo)">{{Status_ToDo}}</button>
+  <button mat-stroked-button color="primary" (click)="changeStatus(Status_InProgress)">{{Status_InProgress}}</button>
+  <button mat-stroked-button color="warn" (click)="changeStatus(Status_Done)">{{Status_Done}}</button>
 </div>
 
 <table class="table table-hover">
@@ -17,7 +17,6 @@
     <th>Start Date</th>
     <th>Finish Date</th>
     <th>Remarks</th>
-    <th></th>
   </thead>
   <tbody>
     <tr *ngFor="let utItem of usertopics | async; let i = index" (click)="setClickedRow(i, utItem)" [class.active]="i == selectedRow">
@@ -30,7 +29,6 @@
       <td>{{utItem.startDate? (utItem.startDate.toMillis() | date) : ''}}</td>
       <td>{{utItem.finishDate? (utItem.finishDate.toMillis() | date) : ''}}</td>
       <td>{{utItem.remarks}}</td>
-      <td><a class="btn text-danger" (click)="onEdit(utItem)"><i class="fa fa-pencil">Edit</i></a></td>
     </tr>
   </tbody>
 </table>
