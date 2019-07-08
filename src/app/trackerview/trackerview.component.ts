@@ -35,7 +35,7 @@ export class TrackerviewComponent implements OnInit {
   public Status_InProgress = 'In Progress';
   public Status_Done = 'Done';
 
-  private Message_DataLoaded = "";
+  private Message_DataLoaded = "Data loaded successfully.";
   private Message_ChangedStatus = "Changed the status to successfully";
   
   constructor(
