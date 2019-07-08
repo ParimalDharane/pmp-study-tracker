@@ -32,7 +32,7 @@
 npm-debug.log
 testem.log
 /typings
-notes.txt
+#notes.txt
 
 # e2e
 /e2e/*.js
