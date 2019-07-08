@@ -8,6 +8,8 @@ import { UsertopicService } from 'src/app/shared/usertopic.service';
 import { TopicService } from 'src/app/shared/topic.service';
 import { Usertopic } from 'src/app/shared/usertopic.model';
 import { Topic } from 'src/app/shared/topic.model';
+import { ApputilService } from 'src/app/core/apputil.service';
+
 import * as _ from 'lodash';
 import { LoginComponent } from '../login/login.component';
 import * as firebase from 'firebase/app';
@@ -32,11 +34,15 @@ export class TrackerviewComponent implements OnInit {
   public Status_ToDo = 'To Do';
   public Status_InProgress = 'In Progress';
   public Status_Done = 'Done';
+
+  private Message_DataLoaded = "";
+  private Message_ChangedStatus = "Changed the status to successfully";
   
   constructor(
     private userTopicService: UsertopicService,
     private topicService: TopicService,
     public userService: UserService,
+    private apputilService: ApputilService,
     private firestore: AngularFirestore) {
     this.user = userService.afAuth.user;
   }
@@ -65,8 +71,10 @@ export class TrackerviewComponent implements OnInit {
         }))
       );
 
-      console.log(this.usertopics, ' received usertopics ');
-      console.log(this.usertopicsCollection, ' received usertopicsCollection ');
+      this.apputilService.toastSuccess(this.Message_DataLoaded);
+
+      // console.log(this.usertopics, ' received usertopics ');
+      // console.log(this.usertopicsCollection, ' received usertopicsCollection ');
     }
   }
 
@@ -101,7 +109,11 @@ export class TrackerviewComponent implements OnInit {
         // this.selectedObj.startDate = this.todaysDate();
         this.selectedObj.finishDate = this.todaysDate();;
       }
-      this.userTopicService.updateUsertopic(this.selectedObj);
+      this.userTopicService.updateUsertopic(this.selectedObj).then( data => {
+        this.apputilService.toastSuccess(this.Message_ChangedStatus);
+      }).catch(error => {
+
+      });
     }
   }
   
