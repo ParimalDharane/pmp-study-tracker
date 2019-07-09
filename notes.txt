@@ -14,7 +14,10 @@ Project Tracker
 12. UI - Trackerview - Allow user to add remarks
 
 
-
+--X--
+links
+Reading CSV file: https://www.c-sharpcorner.com/article/read-csv-file-in-angular-7/
+Loading Spinners: https://christianlydemann.com/four-ways-to-create-loading-spinners-in-an-angular-app/
 
 const firebaseConfig = {
   apiKey: "AIzaSyBKBFrFqzWIQ-Ixh4JDK35-8wQ2iRsvNoM",
