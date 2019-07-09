@@ -1,3 +1,5 @@
-$icon-font-path: "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/fonts/" !default;
+// $icon-font-path: "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/fonts/" !default;
 // Include Bootstrap styles
-@import "~bootstrap-sass/assets/stylesheets/_bootstrap";
+// @import "~bootstrap-sass/assets/stylesheets/_bootstrap";
+@import '~bootstrap/dist/css/bootstrap.css';
+@import '~font-awesome/css/font-awesome.css';

@@ -19,6 +19,8 @@ links
 Reading CSV file: https://www.c-sharpcorner.com/article/read-csv-file-in-angular-7/
 Loading Spinners: https://christianlydemann.com/four-ways-to-create-loading-spinners-in-an-angular-app/
 
+Responsive Design: https://www.youtube.com/watch?v=fA1NW-T1QXc
+
 const firebaseConfig = {
   apiKey: "AIzaSyBKBFrFqzWIQ-Ixh4JDK35-8wQ2iRsvNoM",
   authDomain: "fir-auth-85aee.firebaseapp.com",
