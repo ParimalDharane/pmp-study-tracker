@@ -12,7 +12,11 @@ Project Tracker
 10. UI - Trackerview - move toaster location to right botton of the screens
 11. UI - User Registration Form - add additional fields
 12. UI - Trackerview - Allow user to add remarks
-
+13. UI - Menu is not responsive on mobile device - DONE 
+14. UI - Add action button allowing user to select a topic randomly
+15. Backend - Add a function to select a topic randomly from available list
+16. UI - Animation to show 'a topic is being picked up randomly"
+17. UI - Fix toastr error - DONE 
 
 --X--
 links
@@ -20,6 +24,9 @@ Reading CSV file: https://www.c-sharpcorner.com/article/read-csv-file-in-angular
 Loading Spinners: https://christianlydemann.com/four-ways-to-create-loading-spinners-in-an-angular-app/
 
 Responsive Design: https://www.youtube.com/watch?v=fA1NW-T1QXc
+
+
+toaster error: https://stackoverflow.com/questions/42387348/angular2-dynamic-content-loading-throws-expression-changed-exception
 
 const firebaseConfig = {
   apiKey: "AIzaSyBKBFrFqzWIQ-Ixh4JDK35-8wQ2iRsvNoM",

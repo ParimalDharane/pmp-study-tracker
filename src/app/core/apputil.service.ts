@@ -10,6 +10,8 @@ export class ApputilService {
   constructor(private toastr: ToastrService) { }
 
   toastSuccess(message: string) {
-    this.toastr.success(message);
+    setTimeout(() => {
+      this.toastr.success(message);
+    }, 0);
   }
 }
