@@ -21,9 +21,12 @@
         <a class="nav-link" routerLink="/user" *ngIf="!(user | async)?.uid">Login</a>
       </li>
       <li class="nav-item">
-          <a class="nav-link" (click)="logout()" *ngIf="(user | async)?.uid">Logout</a>
-        </li>
-      </ul>
+        <a class="nav-link" routerLink="/register" *ngIf="!(user | async)?.uid">Sign Up</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" (click)="logout()" *ngIf="(user | async)?.uid">Logout</a>
+      </li>
+    </ul>
   </div>
 </nav>
 <!-- <img src="someimage.png" class="img-fluid"> -->
