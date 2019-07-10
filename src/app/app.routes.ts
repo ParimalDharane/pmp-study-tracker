@@ -9,9 +9,11 @@ import { TrackerviewComponent } from './trackerview/trackerview.component';
 import { StudentListComponent } from './students/student-list/student-list.component';
 import { StudentService } from './shared/student.service';
 import { TopicviewComponent } from './topicview/topicview.component';
+import { HomeviewComponent } from './homeview/homeview.component';
 
 export const rootRouterConfig: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: 'home', component: HomeviewComponent },
   { path: 'login', component: LoginComponent, canActivate: [AuthGuard] },
   { path: 'register', component: RegisterComponent, canActivate: [AuthGuard] },
   { path: 'user', component: UserComponent,  resolve: { data: UserResolver} },

@@ -24,6 +24,7 @@ import { StudentListComponent } from './students/student-list/student-list.compo
 import { StudentComponent } from './students/student/student.component';
 import { TrackerviewComponent } from './trackerview/trackerview.component';
 import { TopicviewComponent } from './topicview/topicview.component';
+import { HomeviewComponent } from './homeview/homeview.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { TopicviewComponent } from './topicview/topicview.component';
     StudentListComponent,
     StudentComponent,
     TrackerviewComponent,
-    TopicviewComponent
+    TopicviewComponent,
+    HomeviewComponent
   ],
   imports: [
     BrowserModule,
