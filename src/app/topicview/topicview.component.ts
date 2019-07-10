@@ -42,6 +42,7 @@ export class TopicviewComponent implements OnInit {
 
         this.records = this.getDataRecordsArrayFromCSVFile(csvRecordsArray, headersRow.length);
         console.log(this.records, 'loaded csv records');
+        this.addToDb();
       };
 
       reader.onerror = function () {
@@ -84,5 +85,8 @@ export class TopicviewComponent implements OnInit {
   fileReset() {  
     this.csvReader.nativeElement.value = "";  
     this.records = [];  
+  }
+  addToDb() {
+    this.topicService.addUsertopics(this.records);
   }
 }
