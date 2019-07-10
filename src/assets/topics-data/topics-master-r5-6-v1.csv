@@ -1,0 +1,50 @@
+code,name,area,procgroup
+4.1,Develop Project Charter,Project Integration Management,Initiating
+4.2,Develop Project Management Plan,Project Integration Management,Planning
+4.3,Direct and Manage Project Work,Project Integration Management,Executing
+4.4,Manage Project Knowledge,Project Integration Management,Executing
+4.5,Monitor and Control Project Work,Project Integration Management,"Monitoring, Forecasting, Controlling"
+4.6,Perform Integrated Change Control,Project Integration Management,"Monitoring, Forecasting, Controlling"
+4.7,Close Project or Phase,Project Integration Management,Closing
+5.1,Plan Scope Management,Project Scope Management,Planning
+5.2,Collect Requirements,Project Scope Management,Planning
+5.3,Define Scope,Project Scope Management,Planning
+5.4,Create WBS,Project Scope Management,Planning
+5.5,Validate Scope,Project Scope Management,"Monitoring, Forecasting, Controlling"
+5.6,Control Scope,Project Scope Management,"Monitoring, Forecasting, Controlling"
+6.1,Plan Schedule Management,Project Schedule Management,Planning
+6.2,Define Activities,Project Schedule Management,Planning
+6.3,Sequence Activities,Project Schedule Management,Planning
+6.4,Estimate Activity Durations,Project Schedule Management,Planning
+6.5,Develop Schedule,Project Schedule Management,Planning
+6.6,Control Schedule,Project Schedule Management,"Monitoring, Forecasting, Controlling"
+7.1,Plan Cost Management,Project Cost Management,Planning
+7.2,Estimate Costs,Project Cost Management,Planning
+7.3,Determine Budget,Project Cost Management,Planning
+7.4,Control Costs,Project Cost Management,"Monitoring, Forecasting, Controlling"
+8.1,Plan Quality Management,Project Quality Management,Planning
+8.2,Manage Quality,Project Quality Management,Executing
+8.3,Control Quality,Project Quality Management,"Monitoring, Forecasting, Controlling"
+9.1,Plan Resource Management,Project Resource Management,Planning
+9.2,Estimate Activity Resources,Project Resource Management,Planning
+9.3,Acquired Resources,Project Resource Management,Executing
+9.4,Develop Team,Project Resource Management,Executing
+9.5,Manage Team,Project Resource Management,Executing
+9.6,Control Resources,Project Resource Management,"Monitoring, Forecasting, Controlling"
+10.1,Plan Communications Management,Project Communications Management,Planning
+10.2,Manage Communications,Project Communications Management,Executing
+10.3,Monitor Communications,Project Communications Management,"Monitoring, Forecasting, Controlling"
+11.1,Plan Risk Management,Project Risk Management,Planning
+11.2,Identify Risks,Project Risk Management,Planning
+11.3,Perform Qualitative Risk Analysis,Project Risk Management,Planning
+11.4,Perform Quantitative Risk Analysis,Project Risk Management,Planning
+11.5,Plan Risk Responses,Project Risk Management,Planning
+11.6,Implement Risk Responses,Project Risk Management,Executing
+11.7,MonitorRisks,Project Risk Management,"Monitoring, Forecasting, Controlling"
+12.1,Plan Procurement Management,Project Procurement Management,Planning
+12.2,Conduct Procurements,Project Procurement Management,Executing
+12.3,Control Procurements,Project Procurement Management,"Monitoring, Forecasting, Controlling"
+13.1,Identify Stakeholders,Project Stakeholder Management,Initiating
+13.2,Plan Stakeholder Engagement,Project Stakeholder Management,Planning
+13.3,Manage Stakeholder Engagement,Project Stakeholder Management,Executing
+13.4,MonitorStakeholder Engagement,Project Stakeholder Management,"Monitoring, Forecasting, Controlling"
