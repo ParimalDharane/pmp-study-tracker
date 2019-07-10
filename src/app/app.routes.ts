@@ -12,7 +12,7 @@ import { TopicviewComponent } from './topicview/topicview.component';
 import { HomeviewComponent } from './homeview/homeview.component';
 
 export const rootRouterConfig: Routes = [
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeviewComponent },
   { path: 'login', component: LoginComponent, canActivate: [AuthGuard] },
   { path: 'register', component: RegisterComponent, canActivate: [AuthGuard] },
