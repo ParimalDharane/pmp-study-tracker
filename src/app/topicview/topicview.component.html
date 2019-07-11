@@ -16,24 +16,36 @@
       <span class="float-right badge-primary ml-2 pl-2 pr-2" title="Number of records">{{topicsCount}} </span>
     </div>
     <div class="mt-2">
-    <table class="table table-hover">
-      <thead>
-        <th>Topic Code</th>
-        <th>Name</th>
-        <th>Knowledge Area</th>
-        <th>Process Group</th>
-      </thead>
-      <tbody>
-        <!-- <li *ngFor="let item of items | myfilter:filterargs"> -->
-        <tr *ngFor="let utItem of topics | async | stsearch : topicsSearch | orderBy: order">
-          <!-- <tr *ngFor="let utItem of topics | async | filter : topicsSearch"> -->
-          <td>{{utItem.code}}</td>
-          <td>{{utItem.name}}</td>
-          <td>{{utItem.area}}</td>
-          <td>{{utItem.procgroup}}</td>
-        </tr>
-      </tbody>
-    </table>
+      <table class="table table-hover">
+        <thead>
+          <th [class.active]="order === 'code'" (click)="setOrder('code')">
+            Topic Code
+            <span [hidden]="!reverse">▼</span><span [hidden]="reverse">▲</span>
+          </th>
+          <th [class.active]="order === 'name'" (click)="setOrder('name')">
+            Name
+            <span [hidden]="!reverse">▼</span><span [hidden]="reverse">▲</span>
+          </th>
+          <th [class.active]="order === 'area'" (click)="setOrder('area')">
+            Knowledge Area
+            <span [hidden]="!reverse">▼</span><span [hidden]="reverse">▲</span>
+          </th>
+          <th [class.active]="order === 'procgroup'" (click)="setOrder('procgroup')">
+            Process Group
+            <span [hidden]="!reverse">▼</span><span [hidden]="reverse">▲</span>
+          </th>
+        </thead>
+        <tbody>
+          <!-- <li *ngFor="let item of items | myfilter:filterargs"> -->
+          <tr *ngFor="let utItem of topics | async | stsearch : topicsSearch | orderBy: order:reverse:'case-insensitive'">
+            <!-- <tr *ngFor="let utItem of topics | async | filter : topicsSearch"> -->
+            <td>{{utItem.code}}</td>
+            <td>{{utItem.name}}</td>
+            <td>{{utItem.area}}</td>
+            <td>{{utItem.procgroup}}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>
