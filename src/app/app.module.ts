@@ -15,6 +15,7 @@ import { UserResolver } from './user/user.resolver';
 import { AuthGuard } from './core/auth.guard';
 import { AuthService } from './core/auth.service';
 import { UserService } from './core/user.service';
+import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
@@ -25,6 +26,7 @@ import { StudentComponent } from './students/student/student.component';
 import { TrackerviewComponent } from './trackerview/trackerview.component';
 import { TopicviewComponent } from './topicview/topicview.component';
 import { HomeviewComponent } from './homeview/homeview.component';
+import { StsearchPipe } from './shared/stsearch.pipe';
 
 @NgModule({
   declarations: [
@@ -37,10 +39,12 @@ import { HomeviewComponent } from './homeview/homeview.component';
     StudentComponent,
     TrackerviewComponent,
     TopicviewComponent,
-    HomeviewComponent
+    HomeviewComponent,
+    StsearchPipe
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     ReactiveFormsModule,
     RouterModule.forRoot(rootRouterConfig, { useHash: false }),
     AngularFireModule.initializeApp(environment.firebase),

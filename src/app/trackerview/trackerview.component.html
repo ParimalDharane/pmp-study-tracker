@@ -2,7 +2,7 @@
   User Topics 
 </h2>
 <div class="example-button-row">
-  <button mat-stroked-button (click)="changeStatus(Status_ToDo)">{{Status_ToDo}}</button>
+  <button mat-stroked-button (click)="changeStatus(Status_ToDo)" [disabled]="!rowIsSelected">{{Status_ToDo}}</button>
   <button mat-stroked-button color="primary" (click)="changeStatus(Status_InProgress)">{{Status_InProgress}}</button>
   <button mat-stroked-button color="warn" (click)="changeStatus(Status_Done)">{{Status_Done}}</button>
 </div>

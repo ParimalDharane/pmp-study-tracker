@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { TopicService } from '../shared/topic.service';
 import { Topic } from '../shared/topic.model';
 
+
 @Component({
   selector: 'app-topicview',
   templateUrl: './topicview.component.html',
@@ -10,6 +11,8 @@ import { Topic } from '../shared/topic.model';
 })
 export class TopicviewComponent implements OnInit {
   public topics: Observable<any[]>;
+  public topicsCount: number;
+  public topicsSearch: any;
 
   public records: any[] = [];
   @ViewChild('csvReader') csvReader: any;
@@ -20,7 +23,10 @@ export class TopicviewComponent implements OnInit {
 
   ngOnInit() {
     this.topics = this.topicService.getTopics();
-    console.log(this.topics, ' received topics ');
+    console.log(this.topics, ' received topics');
+    this.topics.subscribe(result => {
+      this.topicsCount = result.length;
+    });
   }
 
   uploadListener($event: any): void {
