@@ -15,6 +15,7 @@ export class TopicviewComponent implements OnInit {
   public topicsSearch: any;
 
   public records: any[] = [];
+  order: string = 'code';
   @ViewChild('csvReader') csvReader: any;
 
   constructor(

@@ -25,7 +25,7 @@
       </thead>
       <tbody>
         <!-- <li *ngFor="let item of items | myfilter:filterargs"> -->
-        <tr *ngFor="let utItem of topics | async | stsearch : topicsSearch">
+        <tr *ngFor="let utItem of topics | async | stsearch : topicsSearch | orderBy: order">
           <!-- <tr *ngFor="let utItem of topics | async | filter : topicsSearch"> -->
           <td>{{utItem.code}}</td>
           <td>{{utItem.name}}</td>

@@ -17,6 +17,7 @@ import { AuthService } from './core/auth.service';
 import { UserService } from './core/user.service';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { OrderModule } from 'ngx-order-pipe';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './template/navbar/navbar.component';
@@ -46,6 +47,7 @@ import { StsearchPipe } from './shared/stsearch.pipe';
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
+    OrderModule,
     RouterModule.forRoot(rootRouterConfig, { useHash: false }),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule, // imports firebase/firestore, only needed for database features
