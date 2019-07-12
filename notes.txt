@@ -28,6 +28,9 @@ Responsive Design: https://www.youtube.com/watch?v=fA1NW-T1QXc
 
 toaster error: https://stackoverflow.com/questions/42387348/angular2-dynamic-content-loading-throws-expression-changed-exception
 
+order by (sorting) pipe: https://www.npmjs.com/package/ngx-order-pipe
+
+
 const firebaseConfig = {
   apiKey: "AIzaSyBKBFrFqzWIQ-Ixh4JDK35-8wQ2iRsvNoM",
   authDomain: "fir-auth-85aee.firebaseapp.com",

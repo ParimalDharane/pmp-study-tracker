@@ -13,6 +13,7 @@ import { ApputilService } from 'src/app/core/apputil.service';
 import * as _ from 'lodash';
 import { LoginComponent } from '../login/login.component';
 import * as firebase from 'firebase/app';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-trackerview',
@@ -38,8 +39,10 @@ export class TrackerviewComponent implements OnInit {
 
   private Message_DataLoaded = "Data loaded successfully.";
   private Message_ChangedStatus = "Changed the status to successfully";
-  
+
+
   constructor(
+    private route: ActivatedRoute,
     private userTopicService: UsertopicService,
     private topicService: TopicService,
     public userService: UserService,
@@ -69,29 +72,22 @@ export class TrackerviewComponent implements OnInit {
       return;
     }
     // let uid = '0FFd0d9AqFVBdR9aPVRG71D0Jw62';
-    const user =  JSON.parse(localStorage.getItem('currUser'));
-    console.log(user, ' get from localstorage ');
-    if (user !== null) {
-      // let uid = '0FFd0d9AqFVBdR9aPVRG71D0Jw62';
-      this.usertopicsCollection = this.userTopicService.getUsertopics(user.uid);
-      // this.usertopics = this.usertopicsCollection.valueChanges();
+    this.usertopicsCollection = this.userTopicService.getUsertopics(this.user.uid);
+    // this.usertopics = this.usertopicsCollection.valueChanges();
 
+    this.usertopics = this.usertopicsCollection.snapshotChanges().pipe(
+      map(actions => actions.map(a => {
+        const data = a.payload.doc.data() as Usertopic;
+        const id = a.payload.doc.id;
+        return { id, ...data };
+      }))
+    );
 
-      this.usertopics = this.usertopicsCollection.snapshotChanges().pipe(
-        map(actions => actions.map(a => {
-          const data = a.payload.doc.data() as Usertopic;
-          const id = a.payload.doc.id;
-          return { id, ...data };
-        }))
-      );
+    this.apputilService.toastSuccess(this.Message_DataLoaded);
 
-      this.apputilService.toastSuccess(this.Message_DataLoaded);
-
-      // console.log(this.usertopics, ' received usertopics ');
-      // console.log(this.usertopicsCollection, ' received usertopicsCollection ');
-    }
+    // console.log(this.usertopics, ' received usertopics ');
+    // console.log(this.usertopicsCollection, ' received usertopicsCollection ');
   }
-
   /*
   onEdit(usertopicObj: Usertopic) {
     usertopicObj.status = 'In Progress';
@@ -111,32 +107,33 @@ export class TrackerviewComponent implements OnInit {
   */
 
   changeStatus(newStatus: string) {
-    if(this.selectedRow !== undefined) {
+    if (this.selectedRow !== undefined) {
       this.selectedObj.status = newStatus;
-      if(newStatus === this.Status_ToDo) {
+      if (newStatus === this.Status_ToDo) {
         this.selectedObj.startDate = '';
         this.selectedObj.finishDate = '';
-      } else if(newStatus === this.Status_InProgress) {
+      } else if (newStatus === this.Status_InProgress) {
         this.selectedObj.startDate = this.todaysDate();
         this.selectedObj.finishDate = '';
-      } else if(newStatus === this.Status_Done) {
+      } else if (newStatus === this.Status_Done) {
         // this.selectedObj.startDate = this.todaysDate();
         this.selectedObj.finishDate = this.todaysDate();;
       }
-      this.userTopicService.updateUsertopic(this.selectedObj).then( data => {
+      this.userTopicService.updateUsertopic(this.selectedObj).then(data => {
         this.apputilService.toastSuccess(this.Message_ChangedStatus);
       }).catch(error => {
 
       });
     }
   }
-  
-  setClickedRow = function(index: any, obj: Usertopic) {
+
+  setClickedRow = function (index: any, obj: Usertopic) {
     this.selectedRow = index;
     this.selectedObj = obj;
+    this.rowIsSelected = true;
   }
 
-  todaysDate = function() {
+  todaysDate = function () {
     let today = new Date();
     let firestoreDate = firebase.firestore.Timestamp.fromDate(today);
     return firestoreDate;

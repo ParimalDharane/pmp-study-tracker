@@ -2,6 +2,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Observable } from 'rxjs';
 import { TopicService } from '../shared/topic.service';
 import { Topic } from '../shared/topic.model';
+import { OrderPipe } from 'ngx-order-pipe';
+
 
 @Component({
   selector: 'app-topicview',
@@ -10,17 +12,34 @@ import { Topic } from '../shared/topic.model';
 })
 export class TopicviewComponent implements OnInit {
   public topics: Observable<any[]>;
+  public topicsCount: number;
+  public topicsSearch: any;
 
   public records: any[] = [];
+  order: string = 'code';
+  reverse: boolean = false;
   @ViewChild('csvReader') csvReader: any;
 
   constructor(
-    private topicService: TopicService
+    private topicService: TopicService,
+    private orderPipe: OrderPipe
   ) { }
 
   ngOnInit() {
     this.topics = this.topicService.getTopics();
-    console.log(this.topics, ' received topics ');
+    console.log(this.topics, ' received topics');
+    this.topics.subscribe(result => {
+      this.topicsCount = result.length;
+      // this.topics = this.orderPipe.transform(this.topics, 'code');
+    });
+  }
+
+  setOrder(value: string) {
+    if (this.order === value) {
+      this.reverse = !this.reverse;
+    }
+
+    this.order = value;
   }
 
   uploadListener($event: any): void {

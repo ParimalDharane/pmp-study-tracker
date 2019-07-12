@@ -30,6 +30,7 @@
     "firebase-functions": "^3.0.2",
     "font-awesome": "^4.7.0",
     "jquery": "^3.4.1",
+    "ngx-order-pipe": "^2.0.3",
     "ngx-toastr": "^10.0.4",
     "node-sass": "^4.11.0",
     "nodemailer": "^6.2.1",
