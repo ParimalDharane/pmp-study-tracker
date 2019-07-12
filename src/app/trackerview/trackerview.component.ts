@@ -29,6 +29,7 @@ export class TrackerviewComponent implements OnInit {
   // usertopicList: Usertopic[];
   public usertopics: Observable<any[]>;
   private usertopicsCollection: AngularFirestoreCollection<Usertopic>;
+  rowIsSelected: boolean;
 
   //constants
   public Status_ToDo = 'To Do';
@@ -54,10 +55,23 @@ export class TrackerviewComponent implements OnInit {
   };
 
   ngOnInit() {
+    this.rowIsSelected = false;
+    // let uid = '0FFd0d9AqFVBdR9aPVRG71D0Jw62';
+    console.log('selected init row=[' + this.selectedRow + ']');
+    console.log(firebase.auth().currentUser, ' TrackerviewComponent   ngOnInit ');
+    this.user = firebase.auth().currentUser;
+    this.loadUsertopics();
+  }
+
+  loadUsertopics() {
+    if (this.user === null) {
+      console.log('loadUsertopics: User data is missing');
+      return;
+    }
     // let uid = '0FFd0d9AqFVBdR9aPVRG71D0Jw62';
     const user =  JSON.parse(localStorage.getItem('currUser'));
     console.log(user, ' get from localstorage ');
-    if(user !== null) {
+    if (user !== null) {
       // let uid = '0FFd0d9AqFVBdR9aPVRG71D0Jw62';
       this.usertopicsCollection = this.userTopicService.getUsertopics(user.uid);
       // this.usertopics = this.usertopicsCollection.valueChanges();
