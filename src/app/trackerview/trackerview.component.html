@@ -9,18 +9,46 @@
 
 <table class="table table-hover">
   <thead>
-    <th>Topic Number</th>
-    <th>Name</th>
-    <th>Area</th>
-    <th>Group</th>
-    <th>Status</th>
-    <th>Start Date</th>
-    <th>Finish Date</th>
-    <th>Remarks</th>
+    <th [class.active]="order === 'code'" (click)="setOrder('code')">
+      Topic Number
+      <span [hidden]="!reverse">▼</span><span [hidden]="reverse">▲</span>
+    </<th>
+    <th[class.active]="order === 'code'" (click)="setOrder('code')">
+      Name
+      <span [hidden]="!reverse">▼</span><span [hidden]="reverse">▲</span>
+    </th>
+    <th [class.active]="order === 'code'" (click)="setOrder('code')">
+      Area
+      <span [hidden]="!reverse">▼</span><span [hidden]="reverse">▲</span>
+    </th>
+    <th[class.active]="order === 'code'" (click)="setOrder('code')">
+      Group
+      <span [hidden]="!reverse">▼</span><span [hidden]="reverse">▲</span>
+    </th>
+    <th[class.active]="order === 'code'" (click)="setOrder('code')">
+      Status
+      <span [hidden]="!reverse">▼</span><span [hidden]="reverse">▲</span>
+    </th>
+    <th[class.active]="order === 'code'" (click)="setOrder('code')">
+      Start Date
+      <span [hidden]="!reverse">▼</span><span [hidden]="reverse">▲</span>
+    </th>
+    <th[class.active]="order === 'code'" (click)="setOrder('code')">
+      Finish Date
+      <span [hidden]="!reverse">▼</span><span [hidden]="reverse">▲</span>
+    </th>
+    <th[class.active]="order === 'code'" (click)="setOrder('code')">
+      Remarks
+      <span [hidden]="!reverse">▼</span><span [hidden]="reverse">▲</span>
+    </th>
   </thead>
   <tbody>
+
+     <!-- <li *ngFor="let item of items | myfilter:filterargs"> -->
+        <tr *ngFor="let utItem of topics | async | stsearch : topicsSearch | orderBy: order:reverse:'case-insensitive'">
+            <!-- <tr *ngFor="let utItem of topics | async | filter : topicsSearch"> -->
     <tr *ngFor="let utItem of usertopics | async; let i = index" (click)="setClickedRow(i, utItem)" [class.active]="i == selectedRow">
-    
+
       <td>{{utItem.code}}</td>
       <td>{{utItem.name}}</td>
       <td>{{utItem.area}}</td>
