@@ -2,9 +2,9 @@ Project Tracker
 ================
 1. UI - Trackerview - disable action bar on top if no row is selected
 2. Backend - Trackerview - add workflow checking logic - todo->In progress->done 
-3. UI - Cleanup - remove students menu and component
+3. UI - Cleanup - remove students menu and component - DONE
 4. UI - Enhance look and feel, layout etc
-5. Backend - import all 49 processes into topics database
+5. Backend - import all 49 processes into topics database - DONE
 6. Auth - implement role based screens/actions - topics maintenance is allowed only for admin user 
 7. UI - CRUD for topics
 8. UI - Trackerview - merge topics columns in one column, reducing width of the table
@@ -17,6 +17,9 @@ Project Tracker
 15. Backend - Add a function to select a topic randomly from available list
 16. UI - Animation to show 'a topic is being picked up randomly"
 17. UI - Fix toastr error - DONE 
+18. UI - Redesign Login screen
+19. UI - Redesign Signup / Register screen
+20. UI - Add Login section on Home screen
 
 --X--
 links

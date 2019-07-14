@@ -9,54 +9,55 @@
 
 <table class="table table-hover">
   <thead>
-    <th>[class.active]="order === 'code'" (click)="setOrder('code')">
+    <th [class.active]="order === 'code'" (click)="setOrder('code')">
       Topic Number
       <span [hidden]="!reverse">▼</span><span [hidden]="reverse">▲</span>
     </th>
-    <th>[class.active]="order === 'code'" (click)="setOrder('code')">
+    <th [class.active]="order === 'name'" (click)="setOrder('name')">
       Name
       <span [hidden]="!reverse">▼</span><span [hidden]="reverse">▲</span>
     </th>
-    <th>[class.active]="order === 'code'" (click)="setOrder('code')">
+    <th [class.active]="order === 'area'" (click)="setOrder('area')">
       Area
       <span [hidden]="!reverse">▼</span><span [hidden]="reverse">▲</span>
     </th>
-    <th>[class.active]="order === 'code'" (click)="setOrder('code')">
+    <th [class.active]="order === 'procgroup'" (click)="setOrder('procgroup')">
       Group
       <span [hidden]="!reverse">▼</span><span [hidden]="reverse">▲</span>
     </th>
-    <th>[class.active]="order === 'code'" (click)="setOrder('code')">
+    <th [class.active]="order === 'status'" (click)="setOrder('status')">
       Status
       <span [hidden]="!reverse">▼</span><span [hidden]="reverse">▲</span>
     </th>
-    <th>[class.active]="order === 'code'" (click)="setOrder('code')">
+    <th [class.active]="order === 'startDate'" (click)="setOrder('startDate')">
       Start Date
       <span [hidden]="!reverse">▼</span><span [hidden]="reverse">▲</span>
     </th>
-    <th>[class.active]="order === 'code'" (click)="setOrder('code')">
+    <th [class.active]="order === 'finishDate'" (click)="setOrder('finishDate')">
       Finish Date
       <span [hidden]="!reverse">▼</span><span [hidden]="reverse">▲</span>
     </th>
-    <th>[class.active]="order === 'code'" (click)="setOrder('code')">
+    <th [class.active]="order === 'remarks'" (click)="setOrder('remarks')">
       Remarks
-      <span [hidden]="!reverse">▼</span><span [hidden]="reverse">▲</span>
-    </th>
+      <span [hidden]="!reverse">▼</span><span [hidden]="reverse">▲</span> 
+    </th> 
   </thead>
   <tbody>
 
      <!-- <li *ngFor="let item of items | myfilter:filterargs"> -->
-        <tr *ngFor="let utItem of topics | async | stsearch : topicsSearch | orderBy: order:reverse:'case-insensitive'">
+        <!-- <tr *ngFor="let utItem of topics | async | orderBy: order:reverse:'case-insensitive'"> -->
             <!-- <tr *ngFor="let utItem of topics | async | filter : topicsSearch"> -->
-    <tr *ngFor="let utItem of usertopics | async; let i = index" (click)="setClickedRow(i, utItem)" [class.active]="i == selectedRow">
+    <tr *ngFor="let utItem of usertopics | async | orderBy: order:reverse:'case-insensitive'; let i = index"
+     (click)="setClickedRow(i, utItem)" [class.active]="i == selectedRow">
 
       <td>{{utItem.code}}</td>
       <td>{{utItem.name}}</td>
-      <td>{{utItem.area}}</td>
+       <td>{{utItem.area}}</td>
       <td>{{utItem.procgroup}}</td>
       <td>{{utItem.status}}</td>
       <td>{{utItem.startDate? (utItem.startDate.toMillis() | date) : ''}}</td>
       <td>{{utItem.finishDate? (utItem.finishDate.toMillis() | date) : ''}}</td>
-      <td>{{utItem.remarks}}</td>
+      <td>{{utItem.remarks}}</td> 
     </tr>
   </tbody>
 </table>

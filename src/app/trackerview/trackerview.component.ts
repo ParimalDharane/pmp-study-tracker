@@ -28,6 +28,8 @@ export class TrackerviewComponent implements OnInit {
   selectedObj: any;
   user: any;
   topicList: Topic[];
+  order: string = 'code';
+  reverse: boolean = false;
   // usertopicList: Usertopic[];
   public usertopics: Observable<any[]>;
   private usertopicsCollection: AngularFirestoreCollection<Usertopic>;
@@ -129,13 +131,13 @@ export class TrackerviewComponent implements OnInit {
     }
   }
 
-  /*setOrder(value: string) {
+  setOrder(value: string) {
     if (this.order === value) {
       this.reverse = !this.reverse;
     }
 
     this.order = value;
-  }*/
+  }
 
 
   setClickedRow = function (index: any, obj: Usertopic) {
