@@ -14,6 +14,7 @@ import * as _ from 'lodash';
 import { LoginComponent } from '../login/login.component';
 import * as firebase from 'firebase/app';
 import { ActivatedRoute } from '@angular/router';
+import { OrderPipe } from 'ngx-order-pipe';
 
 @Component({
   selector: 'app-trackerview',
@@ -27,6 +28,8 @@ export class TrackerviewComponent implements OnInit {
   selectedObj: any;
   user: any;
   topicList: Topic[];
+  order: string = 'code';
+  reverse: boolean = false;
   // usertopicList: Usertopic[];
   public usertopics: Observable<any[]>;
   private usertopicsCollection: AngularFirestoreCollection<Usertopic>;
@@ -47,6 +50,7 @@ export class TrackerviewComponent implements OnInit {
     private topicService: TopicService,
     public userService: UserService,
     private apputilService: ApputilService,
+    private orderPipe: OrderPipe,
     private firestore: AngularFirestore) {
     this.user = userService.afAuth.user;
   }
@@ -126,6 +130,15 @@ export class TrackerviewComponent implements OnInit {
       });
     }
   }
+
+  setOrder(value: string) {
+    if (this.order === value) {
+      this.reverse = !this.reverse;
+    }
+
+    this.order = value;
+  }
+
 
   setClickedRow = function (index: any, obj: Usertopic) {
     this.selectedRow = index;
